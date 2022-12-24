@@ -44,7 +44,7 @@ class RegisterService {
             val response = registerRepository.findById(register.id)
                 ?:throw Exception("El ${register.id} en detalle no existe")
             response.apply{
-                id = register.id
+                assisted = register.assisted
             }
             return registerRepository.save(response)
         }

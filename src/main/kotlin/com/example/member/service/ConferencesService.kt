@@ -1,7 +1,6 @@
 package com.example.member.service
 
 import com.example.member.model.Conferences
-import com.example.member.model.Register
 import com.example.member.repository.ConferencesRepository
 import com.example.member.repository.MemberRepository
 import org.springframework.beans.factory.annotation.Autowired
