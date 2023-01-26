@@ -26,7 +26,13 @@ class RegisterService {
 
 
     fun save (register: Register):Register{
-        return registerRepository.save(register)
+        try {
+            register.assisted?.takeIf { it.trim().isNotEmpty() }
+                ?: throw Exception("fullname no debe ser vacio")
+            return registerRepository.save(register)
+        } catch (ex: Exception) {
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, ex.message)
+        }
     }
     fun update(register: Register):Register{
         try {
